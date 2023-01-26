@@ -12,11 +12,12 @@ export async function setWallet(req, res) {
     const { error } = entrySchema.validate(req.body);
     if (error) return res.sendStatus(422);
 
+    const { user } = res.locals;
+
     const wallet = await db.collection("wallets").findOne({ userId: user._id });
     const lastEntryId = wallet.entries[wallet.entries.length-1]._id;
 
     const entry = {_id: lastEntryId ? lastEntryId+1 : 1, ...req.body};
-    const { user } = res.locals;
 
     try {
         await db.collection("wallets").updateOne({ 
