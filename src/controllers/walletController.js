@@ -15,9 +15,9 @@ export async function setWallet(req, res) {
     const { user } = res.locals;
 
     const wallet = await db.collection("wallets").findOne({ userId: user._id });
-    const lastEntryId = wallet.entries[wallet.entries.length-1]._id;
+    const lastEntry = wallet.entries[wallet.entries.length-1];
 
-    const entry = {_id: lastEntryId ? lastEntryId+1 : 1, ...req.body};
+    const entry = {_id: lastEntry ? lastEntry._id+1 : 1, ...req.body};
 
     try {
         await db.collection("wallets").updateOne({ 
