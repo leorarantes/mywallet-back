@@ -7,7 +7,7 @@ Back-end for My Wallet, a simple financial control app.
 
 My Wallet is a financial control app that allows you to easily register your income and expenses. With it, you can keep track of your budget and control your finances.
 
-Deploy: https://projeto13-mywallet-front-lyart-tau.vercel.app/
+Front-end deploy: https://projeto13-mywallet-front-lyart-tau.vercel.app/
 
 ## 💻 Technologies and Concepts
 
